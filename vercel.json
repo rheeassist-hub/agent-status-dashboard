@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "api/status.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "src/index.js",
+      "use": "@vercel/static-build",
+      "config": {
+        "includeFiles": [
+          "public/**",
+          "src/**/*.{js,jsx,css}"
+        ],
+        "assetsFolder": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/status",
+      "dest": "/api/status.js"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
