@@ -7,14 +7,10 @@
       "use": "@vercel/node"
     },
     {
-      "src": "src/index.js",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "includeFiles": [
-          "public/**",
-          "src/**/*.{js,jsx,css}"
-        ],
-        "assetsFolder": "build"
+        "distDir": "build"
       }
     }
   ],
